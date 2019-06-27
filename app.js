@@ -10,7 +10,7 @@ const patients = Array(100).fill().map((_, i) => {
   return { type: 'heart' }
 })
 
-// initialize a bed object with beds for trauma and heart patients
+// initialize a hospital object containing information for the various units
 const hospital = {
   trauma: {
     beds: [],
@@ -34,7 +34,7 @@ const printHospitalReport = (hospital) => {
   console.log(`The heart unit is ${isHeartUnitFull} - ${hospital.heart.beds.length} beds occupied.`)
 }
 
-// assign each patient to an appropriate bed
+// assign each patient to an appropriate unit and bed
 patients.map(patient => {
   if(patient.type === 'trauma') {
     hospital.trauma.beds.push(patient)
@@ -45,5 +45,5 @@ patients.map(patient => {
   }
 })
 
-// output final report
+// output final hospital report
 printHospitalReport(hospital)
